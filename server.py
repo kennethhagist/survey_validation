@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, session
 app = Flask(__name__)
 app.secret_key = 'SecretValidation'
 
@@ -6,13 +6,13 @@ app.secret_key = 'SecretValidation'
 def index():
     return render_template("index.html")
 
-@app.route('/survey', methods=['POST'])
-def survey():
-    print request.form['name', 'location', 'language', 'comment']
-    session['name', 'location', 'language', 'comment'] = request.form['name', 'location', 'language', 'comment']
-    return redirect('/result')
+#@app.route('/survey')
+#def survey():
+    #print request.form['name', 'location', 'language', 'comment']
+    #session['name', 'location', 'language', 'comment'] = request.form['name', 'location', 'language', 'comment']
+    #return redirect('/result')
 
-app.route('/result')
+@app.route('/result', methods=['POST'])
 def result():
     print request.form
     if len(request.form['name']) and len(request.form['comment']) > 0 and len(request.form['comment']) > 121:
