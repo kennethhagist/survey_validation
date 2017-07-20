@@ -9,19 +9,16 @@ def index():
 @app.route('/survey', methods=['POST'])
 def survey():
     print request.form['name', 'location', 'language', 'comment']
-    if len(request.form['name']) < 1:
-        flash("blank name error message")
-    elif len(request.form['comment']) < 1:
-        flash("blank comment error message")
-    elif len(request.form['comment']) > 121:
-        flash("comment too long error message")
-        return redirect('/')
-
     session['name', 'location', 'language', 'comment'] = request.form['name', 'location', 'language', 'comment']
     return redirect('/result')
 
 app.route('/result')
 def result():
-    return render_template('result.html') #, survey = request.form)
+    print request.form
+    if len(request.form['name']) and len(request.form['comment']) > 0 and len(request.form['comment']) > 121:
+        return render_template('result.html', user = request.form)
+    else:
+        flash("Name or Comment field is blank or Comment field exceeds 120 characters")
+        return redirect('/')
 
 app.run(debug=True)
