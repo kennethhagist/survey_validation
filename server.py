@@ -15,7 +15,7 @@ def index():
 @app.route('/result', methods=['POST'])
 def result():
     print request.form
-    if len(request.form['name']) and len(request.form['comment']) > 0 and len(request.form['comment']) > 121:
+    if len(request.form['name']) and len(request.form['comment']) > 0 and len(request.form['comment']) < 121:
         return render_template('result.html', user = request.form)
     else:
         flash("Name or Comment field is blank or Comment field exceeds 120 characters")
