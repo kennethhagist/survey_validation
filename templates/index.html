@@ -1,39 +1,36 @@
-<!DOCTYPE HTML>
-<html lang=>
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
     <meta charset="utf-8">
     <title>Dojo Survey</title>
-</head>
-<body>
-    <h1>Dojo Survey!</h1>
-    {% with messages = get_flashed_messages() %}
+  </head>
+  <body>
+        {% with messages = get_flashed_messages() %}
         {% if messages %}
-            {% for message in messages %}
-                <p>{{message}}</p>
-            {% endfor %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
         {% endif %}
-    {% endwith %}
-    <form action='/result' method='post'>
-        Your Name: <input id='name' type='text' placeholder="Type your name here">
-        Dojo Location:
-        <select ="Dojo Location">
-            <option value="Silcon Valley">Silcon Valley</option>
-            <option value="Los Angaeles">Los Angeles</option>
-            <option value="Seattle">Seattle</option>
-            <option value="Chicago">Chicago</option>
-            <option value="Dallas">Dallas</option>
-            <option value="Washington DC">Washington DC</option>
-        </select>
-        Favorite Language:
-        <select ="Favorite Language">
-            <option value="CSS">CSS</option>
-            <option value="HTML">HTML</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="Python">Python</option>
-        </select>
-        Comment (optional):
-        <textarea name='comment' rows='4' cols='50' placeholder='Max 120 character comment limit'></textarea>
-        <input id='submit' type='submit' value='send'>
+      {% endwith %}
+        <form action="/result" method="post">
+              Your Name: <input id="name" type="text" name="name" value="">
+              Dojo Location:
+              <select name="location">
+                    <option value="Seattle">Seattle</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Washington DC">Washington DC</option>
+                    <option value="Chicago">Chicago</option>
+              </select>
+              Favorite Language:
+              <select name="language">
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                    <option value="Ruby">Ruby</option>
+              </select>
+              Comment: <textarea name="comment" rows="4" cols="50"></textarea>
+              <input id="submit" type="submit" value="Send">
         </form>
-    </body>
+  </body>
 </html>

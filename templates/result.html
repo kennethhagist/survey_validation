@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Dojo Survey Results (validated)</title>
+  <head>
     <meta charset="utf-8">
-</head>
-<body>
-    <h1>Submitted Info</h1>
-    <!-- <p>{{session['name', 'location', 'language', 'comment'] }}</p> -->
-    <p>Name: {{user.name}}</p>
-    <p>location: {{user.location}}</p>
-    <p>Language: {{user.language}}</p>
-    <p>Comment: {{user.comment}}</p>
+    <title>Survey Info</title>
+  </head>
+  <body>
+        <h3>Submitted Info</h3>
+        <p>Name: {{user.name}}</p>
+        <p>Dojo Location: {{user.location}}</p>
+        <p>Favorite Language: {{user.language}}</p>
+        <p>Comment: {{user.comment}}</p>
 
-    <form action="/">
+        <form action="/">
               <input type="submit" name="" value="Go Back">
-    </form>
-</body>
+        </form>
+  </body>
 </html>
