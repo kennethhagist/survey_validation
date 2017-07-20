@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Dojo Survey</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Dojo Survey!</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action='/survey' method='post'>
+        Your Name: <input type='text' name='name' placeholder="Type your name here"><br>
+        Dojo Location: <select ="Dojo Location" name="location">
+            <option value="Silcon Valley">Silcon Valley</option>
+            <option value="Los Angaeles">Los Angeles</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Dallas">Dallas</option>
+            <option value="Washington DC">Washington DC</option>
+        </select><br>
+        Favorite Language: <select ="Favorite Language" name="language">
+            <option value="CSS">CSS</option>
+            <option value="HTML">HTML</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+        </select><br>
+        Comment (optional): <input type='text' name='comment' placeholder='Max 120 character comment limit'><br>
+        <input type='submit' value='Button'>
+        </form>
+    </body>
+</html>

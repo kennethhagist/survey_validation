@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dojo Survey Results (validated)</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Submitted Info</h1>
+    <p>{{session['name', 'location', 'language', 'comment'] }}</p>
+    <!-- <p>Name: {{survey.name}}</p> -->
+    <!-- <p>location: {{survey.location}}</p> -->
+    <!-- <p>Language: {{survey.language}}</p> -->
+    <!-- <p>Comment: {{survey.comment}}</p> -->
+</body>
+</html>
